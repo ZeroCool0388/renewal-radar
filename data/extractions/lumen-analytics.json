@@ -1,0 +1,99 @@
+{
+  "supplier": "Lumen Analytics Ltd",
+  "category": "Analytics",
+  "annualValueGBP": 108000,
+  "currency": "GBP",
+  "startDate": "{{START:240:24}}",
+  "endDate": "{{TODAY+240}}",
+  "termMonths": 24,
+  "noticePeriodDays": 90,
+  "autoRenew": false,
+  "renewalTermMonths": null,
+  "liabilityCapCustomer": "£1,250,000",
+  "liabilityCapSupplier": "£1,250,000",
+  "governingLaw": "England and Wales",
+  "terminationForConvenience": {
+    "allowed": true,
+    "summary": "Customer may exit on 90 days written notice."
+  },
+  "hasDPA": true,
+  "paymentTerms": "Net 30 days",
+  "warnings": [],
+  "evidence": [
+    {
+      "field": "supplier",
+      "quote": "Supplier: Lumen Analytics Ltd.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "category",
+      "quote": "Service category: Analytics.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "annualValueGBP",
+      "quote": "Annual contract value: GBP 108000.",
+      "location": "5. Charges and payment"
+    },
+    {
+      "field": "currency",
+      "quote": "Contract currency: GBP.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "startDate",
+      "quote": "Start date: {{START:240:24}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "endDate",
+      "quote": "End date: {{TODAY+240}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "termMonths",
+      "quote": "Initial term: 24 months.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "noticePeriodDays",
+      "quote": "Notice period: 90 calendar days before the End date.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "autoRenew",
+      "quote": "Auto-renewal: No. This Agreement expires on the End date without automatic extension.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "liabilityCapCustomer",
+      "quote": "Customer liability cap: £1,250,000.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "liabilityCapSupplier",
+      "quote": "Supplier liability cap: £1,250,000.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "governingLaw",
+      "quote": "Governing law: England and Wales.",
+      "location": "12. Governing law and disputes"
+    },
+    {
+      "field": "terminationForConvenience",
+      "quote": "Termination for convenience: Yes. The Customer may terminate this Agreement for convenience on 90 days written notice.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "hasDPA",
+      "quote": "Data processing addendum: Yes. Schedule 1 is incorporated as the data processing addendum.",
+      "location": "10. Data protection and security"
+    },
+    {
+      "field": "paymentTerms",
+      "quote": "Payment terms: Net 30 days from receipt of a valid invoice.",
+      "location": "5. Charges and payment"
+    }
+  ]
+}

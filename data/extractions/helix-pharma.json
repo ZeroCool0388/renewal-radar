@@ -1,0 +1,99 @@
+{
+  "supplier": "Helix Pharma UK Ltd",
+  "category": "Pharmaceuticals",
+  "annualValueGBP": 160000,
+  "currency": "GBP",
+  "startDate": "{{Q1START:03-12:12}}",
+  "endDate": "{{Q1:03-12}}",
+  "termMonths": 12,
+  "noticePeriodDays": 30,
+  "autoRenew": false,
+  "renewalTermMonths": null,
+  "liabilityCapCustomer": "£500,000",
+  "liabilityCapSupplier": "£500,000",
+  "governingLaw": "England and Wales",
+  "terminationForConvenience": {
+    "allowed": true,
+    "summary": "Customer may exit on 30 days written notice."
+  },
+  "hasDPA": true,
+  "paymentTerms": "Net 30 days",
+  "warnings": [],
+  "evidence": [
+    {
+      "field": "supplier",
+      "quote": "Supplier: Helix Pharma UK Ltd.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "category",
+      "quote": "Service category: Pharmaceuticals.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "annualValueGBP",
+      "quote": "Annual contract value: GBP 160000.",
+      "location": "5. Charges and payment"
+    },
+    {
+      "field": "currency",
+      "quote": "Contract currency: GBP.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "startDate",
+      "quote": "Start date: {{Q1START:03-12:12}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "endDate",
+      "quote": "End date: {{Q1:03-12}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "termMonths",
+      "quote": "Initial term: 12 months.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "noticePeriodDays",
+      "quote": "Notice period: 30 calendar days before the End date.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "autoRenew",
+      "quote": "Auto-renewal: No. This Agreement expires on the End date without automatic extension.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "liabilityCapCustomer",
+      "quote": "Customer liability cap: £500,000.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "liabilityCapSupplier",
+      "quote": "Supplier liability cap: £500,000.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "governingLaw",
+      "quote": "Governing law: England and Wales.",
+      "location": "12. Governing law and disputes"
+    },
+    {
+      "field": "terminationForConvenience",
+      "quote": "Termination for convenience: Yes. The Customer may terminate this SOW for convenience on 30 days written notice.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "hasDPA",
+      "quote": "Data processing addendum: Yes. Schedule 1 is incorporated as the data processing addendum.",
+      "location": "10. Data protection and security"
+    },
+    {
+      "field": "paymentTerms",
+      "quote": "Payment terms: Net 30 days from receipt of a valid invoice.",
+      "location": "5. Charges and payment"
+    }
+  ]
+}

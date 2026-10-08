@@ -1,0 +1,109 @@
+{
+  "supplier": "Cedar Fleet Telematics Ltd",
+  "category": "Logistics / IoT",
+  "annualValueGBP": 108000,
+  "currency": "GBP",
+  "startDate": "{{START:300:24}}",
+  "endDate": "{{TODAY+300}}",
+  "termMonths": 24,
+  "noticePeriodDays": 60,
+  "autoRenew": true,
+  "renewalTermMonths": 12,
+  "liabilityCapCustomer": "£750,000",
+  "liabilityCapSupplier": "£750,000",
+  "governingLaw": "Scotland",
+  "terminationForConvenience": {
+    "allowed": false,
+    "summary": "No termination for convenience during the initial term."
+  },
+  "hasDPA": false,
+  "paymentTerms": "Net 30 days",
+  "warnings": [
+    {
+      "field": "terminationForConvenience",
+      "message": "No termination for convenience during the initial term."
+    }
+  ],
+  "evidence": [
+    {
+      "field": "supplier",
+      "quote": "Supplier: Cedar Fleet Telematics Ltd.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "category",
+      "quote": "Service category: Logistics / IoT.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "annualValueGBP",
+      "quote": "Annual contract value: GBP 108000.",
+      "location": "5. Charges and payment"
+    },
+    {
+      "field": "currency",
+      "quote": "Contract currency: GBP.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "startDate",
+      "quote": "Start date: {{START:300:24}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "endDate",
+      "quote": "End date: {{TODAY+300}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "termMonths",
+      "quote": "Initial term: 24 months.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "noticePeriodDays",
+      "quote": "Notice period: 60 calendar days before the End date.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "autoRenew",
+      "quote": "Auto-renewal: Yes. This Agreement renews automatically unless either party gives timely written notice.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "renewalTermMonths",
+      "quote": "Renewal term: 12 months.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "liabilityCapCustomer",
+      "quote": "Customer liability cap: £750,000.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "liabilityCapSupplier",
+      "quote": "Supplier liability cap: £750,000.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "governingLaw",
+      "quote": "Governing law: Scotland.",
+      "location": "12. Governing law and disputes"
+    },
+    {
+      "field": "terminationForConvenience",
+      "quote": "Termination for convenience: No. Neither party may terminate solely for commercial convenience during the initial term.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "hasDPA",
+      "quote": "Data processing addendum: No. No personal data processing is authorised under this Agreement.",
+      "location": "10. Data protection and security"
+    },
+    {
+      "field": "paymentTerms",
+      "quote": "Payment terms: Net 30 days from receipt of a valid invoice.",
+      "location": "5. Charges and payment"
+    }
+  ]
+}

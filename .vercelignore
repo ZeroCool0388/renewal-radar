@@ -1,0 +1,9 @@
+.git
+node_modules
+.next
+tests
+scripts
+docs
+02-contract-lifecycle-copilot.md
+tmp
+.env*

@@ -1,0 +1,109 @@
+{
+  "supplier": "Northwind Logistics Ltd",
+  "category": "Logistics SaaS",
+  "annualValueGBP": 96000,
+  "currency": "GBP",
+  "startDate": "{{START:55:12}}",
+  "endDate": "{{TODAY+55}}",
+  "termMonths": 12,
+  "noticePeriodDays": 90,
+  "autoRenew": true,
+  "renewalTermMonths": 12,
+  "liabilityCapCustomer": "12 months of fees",
+  "liabilityCapSupplier": "12 months of fees",
+  "governingLaw": "England and Wales",
+  "terminationForConvenience": {
+    "allowed": false,
+    "summary": "No termination for convenience during the initial term."
+  },
+  "hasDPA": true,
+  "paymentTerms": "Net 30 days",
+  "warnings": [
+    {
+      "field": "terminationForConvenience",
+      "message": "No termination for convenience during the initial term."
+    }
+  ],
+  "evidence": [
+    {
+      "field": "supplier",
+      "quote": "Supplier: Northwind Logistics Ltd.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "category",
+      "quote": "Service category: Logistics SaaS.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "annualValueGBP",
+      "quote": "Annual contract value: GBP 96000.",
+      "location": "5. Charges and payment"
+    },
+    {
+      "field": "currency",
+      "quote": "Contract currency: GBP.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "startDate",
+      "quote": "Start date: {{START:55:12}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "endDate",
+      "quote": "End date: {{TODAY+55}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "termMonths",
+      "quote": "Initial term: 12 months.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "noticePeriodDays",
+      "quote": "Notice period: 90 calendar days before the End date.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "autoRenew",
+      "quote": "Auto-renewal: Yes. This Agreement renews automatically unless either party gives timely written notice.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "renewalTermMonths",
+      "quote": "Renewal term: 12 months.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "liabilityCapCustomer",
+      "quote": "Customer liability cap: 12 months of fees.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "liabilityCapSupplier",
+      "quote": "Supplier liability cap: 12 months of fees.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "governingLaw",
+      "quote": "Governing law: England and Wales.",
+      "location": "12. Governing law and disputes"
+    },
+    {
+      "field": "terminationForConvenience",
+      "quote": "Termination for convenience: No. Neither party may terminate solely for commercial convenience during the initial term.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "hasDPA",
+      "quote": "Data processing addendum: Yes. Schedule 1 is incorporated as the data processing addendum.",
+      "location": "10. Data protection and security"
+    },
+    {
+      "field": "paymentTerms",
+      "quote": "Payment terms: Net 30 days from receipt of a valid invoice.",
+      "location": "5. Charges and payment"
+    }
+  ]
+}

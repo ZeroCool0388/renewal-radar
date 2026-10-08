@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "northwind-logistics",
+    "supplier": "Northwind Logistics Ltd",
+    "category": "Logistics SaaS",
+    "annualValueGBP": 96000,
+    "filePath": "data/contracts/01-northwind-logistics-msa.md",
+    "sectorTags": ["Logistics SaaS"]
+  },
+  {
+    "slug": "apex-biolabs",
+    "supplier": "Apex BioLabs Ltd",
+    "category": "Life sciences",
+    "annualValueGBP": 132000,
+    "filePath": "data/contracts/02-apex-biolabs-saas.md",
+    "sectorTags": ["Life sciences"]
+  },
+  {
+    "slug": "helix-pharma",
+    "supplier": "Helix Pharma UK Ltd",
+    "category": "Pharmaceuticals",
+    "annualValueGBP": 160000,
+    "filePath": "data/contracts/03-helix-pharma-sow.md",
+    "sectorTags": ["Pharmaceuticals"]
+  },
+  {
+    "slug": "sterling-fintech",
+    "supplier": "Sterling FinTech Ltd",
+    "category": "Financial services",
+    "annualValueGBP": 144000,
+    "filePath": "data/contracts/04-sterling-fintech-msa.md",
+    "sectorTags": ["Financial services"]
+  },
+  {
+    "slug": "cedar-fleet-telematics",
+    "supplier": "Cedar Fleet Telematics Ltd",
+    "category": "Logistics / IoT",
+    "annualValueGBP": 108000,
+    "filePath": "data/contracts/05-cedar-fleet-telematics.md",
+    "sectorTags": ["Logistics / IoT"]
+  },
+  {
+    "slug": "lumen-analytics",
+    "supplier": "Lumen Analytics Ltd",
+    "category": "Analytics",
+    "annualValueGBP": 108000,
+    "filePath": "data/contracts/06-lumen-analytics-saas.md",
+    "sectorTags": ["Analytics"]
+  },
+  {
+    "slug": "orbit-hris",
+    "supplier": "Orbit HRIS Ltd",
+    "category": "HR & people",
+    "annualValueGBP": 24000,
+    "filePath": "data/contracts/07-orbit-hris-msa.md",
+    "sectorTags": ["HR & people"]
+  },
+  {
+    "slug": "brightpath-consulting",
+    "supplier": "BrightPath Consulting Ltd",
+    "category": "Professional services",
+    "annualValueGBP": 84000,
+    "filePath": "data/contracts/08-brightpath-consulting-sow.md",
+    "sectorTags": ["Professional services"]
+  },
+  {
+    "slug": "novapay-gateway",
+    "supplier": "NovaPay Gateway Ltd",
+    "category": "Payments & FinTech",
+    "annualValueGBP": 156000,
+    "filePath": "data/contracts/09-novapay-gateway-msa.md",
+    "sectorTags": ["Payments & FinTech"]
+  }
+]

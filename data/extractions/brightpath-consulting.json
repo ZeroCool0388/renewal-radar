@@ -1,0 +1,99 @@
+{
+  "supplier": "BrightPath Consulting Ltd",
+  "category": "Professional services",
+  "annualValueGBP": 84000,
+  "currency": "GBP",
+  "startDate": "{{Q1START:02-20:6}}",
+  "endDate": "{{Q1:02-20}}",
+  "termMonths": 6,
+  "noticePeriodDays": 14,
+  "autoRenew": false,
+  "renewalTermMonths": null,
+  "liabilityCapCustomer": "£250,000",
+  "liabilityCapSupplier": "£250,000",
+  "governingLaw": "England and Wales",
+  "terminationForConvenience": {
+    "allowed": true,
+    "summary": "Customer may exit on 14 days written notice."
+  },
+  "hasDPA": false,
+  "paymentTerms": "Net 30 days",
+  "warnings": [],
+  "evidence": [
+    {
+      "field": "supplier",
+      "quote": "Supplier: BrightPath Consulting Ltd.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "category",
+      "quote": "Service category: Professional services.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "annualValueGBP",
+      "quote": "Annual contract value: GBP 84000.",
+      "location": "5. Charges and payment"
+    },
+    {
+      "field": "currency",
+      "quote": "Contract currency: GBP.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "startDate",
+      "quote": "Start date: {{Q1START:02-20:6}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "endDate",
+      "quote": "End date: {{Q1:02-20}}.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "termMonths",
+      "quote": "Initial term: 6 months.",
+      "location": "2. Contract particulars"
+    },
+    {
+      "field": "noticePeriodDays",
+      "quote": "Notice period: 14 calendar days before the End date.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "autoRenew",
+      "quote": "Auto-renewal: No. This Agreement expires on the End date without automatic extension.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "liabilityCapCustomer",
+      "quote": "Customer liability cap: £250,000.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "liabilityCapSupplier",
+      "quote": "Supplier liability cap: £250,000.",
+      "location": "9. Liability and indemnities"
+    },
+    {
+      "field": "governingLaw",
+      "quote": "Governing law: England and Wales.",
+      "location": "12. Governing law and disputes"
+    },
+    {
+      "field": "terminationForConvenience",
+      "quote": "Termination for convenience: Yes. The Customer may terminate this SOW for convenience on 14 days written notice.",
+      "location": "8. Term and termination"
+    },
+    {
+      "field": "hasDPA",
+      "quote": "Data processing addendum: No. No personal data processing is authorised under this Agreement.",
+      "location": "10. Data protection and security"
+    },
+    {
+      "field": "paymentTerms",
+      "quote": "Payment terms: Net 30 days from receipt of a valid invoice.",
+      "location": "5. Charges and payment"
+    }
+  ]
+}

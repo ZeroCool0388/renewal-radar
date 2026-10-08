@@ -1,0 +1,365 @@
+{
+  "Which suppliers can we exit in Q1?": {
+    "intent": "q1",
+    "fields": ["terminationForConvenience", "endDate", "autoRenew", "noticePeriodDays"],
+    "summary": "Fixed terms ending in the upcoming Q1 are listed below. Convenience exit rights and notice periods are shown where present.",
+    "exampleMatches": [
+      {
+        "contractId": "apex-biolabs",
+        "reason": "Fixed terms ending in the upcoming Q1 are listed below. Convenience exit rights and notice periods are shown where present.",
+        "citations": [
+          {
+            "field": "terminationForConvenience",
+            "quote": "Termination for convenience: No. Neither party may terminate solely for commercial convenience during the initial term.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "endDate",
+            "quote": "End date: {{TODAY+100}}.",
+            "location": "2. Contract particulars"
+          },
+          {
+            "field": "autoRenew",
+            "quote": "Auto-renewal: No. This Agreement expires on the End date without automatic extension.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "noticePeriodDays",
+            "quote": "Notice period: 60 calendar days before the End date.",
+            "location": "8. Term and termination"
+          }
+        ]
+      },
+      {
+        "contractId": "helix-pharma",
+        "reason": "Fixed terms ending in the upcoming Q1 are listed below. Convenience exit rights and notice periods are shown where present.",
+        "citations": [
+          {
+            "field": "terminationForConvenience",
+            "quote": "Termination for convenience: Yes. The Customer may terminate this SOW for convenience on 30 days written notice.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "endDate",
+            "quote": "End date: {{Q1:03-12}}.",
+            "location": "2. Contract particulars"
+          },
+          {
+            "field": "autoRenew",
+            "quote": "Auto-renewal: No. This Agreement expires on the End date without automatic extension.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "noticePeriodDays",
+            "quote": "Notice period: 30 calendar days before the End date.",
+            "location": "8. Term and termination"
+          }
+        ]
+      },
+      {
+        "contractId": "brightpath-consulting",
+        "reason": "Fixed terms ending in the upcoming Q1 are listed below. Convenience exit rights and notice periods are shown where present.",
+        "citations": [
+          {
+            "field": "terminationForConvenience",
+            "quote": "Termination for convenience: Yes. The Customer may terminate this SOW for convenience on 14 days written notice.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "endDate",
+            "quote": "End date: {{Q1:02-20}}.",
+            "location": "2. Contract particulars"
+          },
+          {
+            "field": "autoRenew",
+            "quote": "Auto-renewal: No. This Agreement expires on the End date without automatic extension.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "noticePeriodDays",
+            "quote": "Notice period: 14 calendar days before the End date.",
+            "location": "8. Term and termination"
+          }
+        ]
+      }
+    ]
+  },
+  "Which contracts auto-renew with less than 60 days’ notice?": {
+    "intent": "short-notice",
+    "fields": ["noticePeriodDays", "autoRenew", "endDate"],
+    "summary": "These agreements renew automatically and allow less than 60 days to give notice.",
+    "exampleMatches": [
+      {
+        "contractId": "sterling-fintech",
+        "reason": "These agreements renew automatically and allow less than 60 days to give notice.",
+        "citations": [
+          {
+            "field": "noticePeriodDays",
+            "quote": "Notice period: 30 calendar days before the End date.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "autoRenew",
+            "quote": "Auto-renewal: Yes. This Agreement renews automatically unless either party gives timely written notice.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "endDate",
+            "quote": "End date: {{TODAY+22}}.",
+            "location": "2. Contract particulars"
+          }
+        ]
+      },
+      {
+        "contractId": "orbit-hris",
+        "reason": "These agreements renew automatically and allow less than 60 days to give notice.",
+        "citations": [
+          {
+            "field": "noticePeriodDays",
+            "quote": "Notice period: 45 calendar days before the End date.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "autoRenew",
+            "quote": "Auto-renewal: Yes. This Agreement renews automatically unless either party gives timely written notice.",
+            "location": "8. Term and termination"
+          },
+          {
+            "field": "endDate",
+            "quote": "End date: {{TODAY+57}}.",
+            "location": "2. Contract particulars"
+          }
+        ]
+      }
+    ]
+  },
+  "Where is our liability uncapped or above £1m?": {
+    "intent": "liability",
+    "fields": ["liabilityCapCustomer", "annualValueGBP"],
+    "summary": "Customer-side liability exposure includes uncapped exceptions and caps above £1 million. Supplier exposure is a separate query.",
+    "exampleMatches": [
+      {
+        "contractId": "apex-biolabs",
+        "reason": "Customer-side liability exposure includes uncapped exceptions and caps above £1 million. Supplier exposure is a separate query.",
+        "citations": [
+          {
+            "field": "liabilityCapCustomer",
+            "quote": "Customer liability cap: 12 months of fees; uncapped for Customer IP indemnity.",
+            "location": "9. Liability and indemnities"
+          },
+          {
+            "field": "annualValueGBP",
+            "quote": "Annual contract value: GBP 132000.",
+            "location": "5. Charges and payment"
+          }
+        ]
+      },
+      {
+        "contractId": "lumen-analytics",
+        "reason": "Customer-side liability exposure includes uncapped exceptions and caps above £1 million. Supplier exposure is a separate query.",
+        "citations": [
+          {
+            "field": "liabilityCapCustomer",
+            "quote": "Customer liability cap: £1,250,000.",
+            "location": "9. Liability and indemnities"
+          },
+          {
+            "field": "annualValueGBP",
+            "quote": "Annual contract value: GBP 108000.",
+            "location": "5. Charges and payment"
+          }
+        ]
+      },
+      {
+        "contractId": "novapay-gateway",
+        "reason": "Customer-side liability exposure includes uncapped exceptions and caps above £1 million. Supplier exposure is a separate query.",
+        "citations": [
+          {
+            "field": "liabilityCapCustomer",
+            "quote": "Customer liability cap: £1,500,000.",
+            "location": "9. Liability and indemnities"
+          },
+          {
+            "field": "annualValueGBP",
+            "quote": "Annual contract value: GBP 156000.",
+            "location": "5. Charges and payment"
+          }
+        ]
+      }
+    ]
+  },
+  "List all contracts governed by English law with a DPA.": {
+    "intent": "law-dpa",
+    "fields": ["governingLaw", "hasDPA"],
+    "summary": "These agreements are governed by England and Wales law and explicitly incorporate a data processing addendum.",
+    "exampleMatches": [
+      {
+        "contractId": "northwind-logistics",
+        "reason": "These agreements are governed by England and Wales law and explicitly incorporate a data processing addendum.",
+        "citations": [
+          {
+            "field": "governingLaw",
+            "quote": "Governing law: England and Wales.",
+            "location": "12. Governing law and disputes"
+          },
+          {
+            "field": "hasDPA",
+            "quote": "Data processing addendum: Yes. Schedule 1 is incorporated as the data processing addendum.",
+            "location": "10. Data protection and security"
+          }
+        ]
+      },
+      {
+        "contractId": "apex-biolabs",
+        "reason": "These agreements are governed by England and Wales law and explicitly incorporate a data processing addendum.",
+        "citations": [
+          {
+            "field": "governingLaw",
+            "quote": "Governing law: England and Wales.",
+            "location": "12. Governing law and disputes"
+          },
+          {
+            "field": "hasDPA",
+            "quote": "Data processing addendum: Yes. Schedule 1 is incorporated as the data processing addendum.",
+            "location": "10. Data protection and security"
+          }
+        ]
+      },
+      {
+        "contractId": "helix-pharma",
+        "reason": "These agreements are governed by England and Wales law and explicitly incorporate a data processing addendum.",
+        "citations": [
+          {
+            "field": "governingLaw",
+            "quote": "Governing law: England and Wales.",
+            "location": "12. Governing law and disputes"
+          },
+          {
+            "field": "hasDPA",
+            "quote": "Data processing addendum: Yes. Schedule 1 is incorporated as the data processing addendum.",
+            "location": "10. Data protection and security"
+          }
+        ]
+      },
+      {
+        "contractId": "sterling-fintech",
+        "reason": "These agreements are governed by England and Wales law and explicitly incorporate a data processing addendum.",
+        "citations": [
+          {
+            "field": "governingLaw",
+            "quote": "Governing law: England and Wales.",
+            "location": "12. Governing law and disputes"
+          },
+          {
+            "field": "hasDPA",
+            "quote": "Data processing addendum: Yes. Schedule 1 is incorporated as the data processing addendum.",
+            "location": "10. Data protection and security"
+          }
+        ]
+      },
+      {
+        "contractId": "lumen-analytics",
+        "reason": "These agreements are governed by England and Wales law and explicitly incorporate a data processing addendum.",
+        "citations": [
+          {
+            "field": "governingLaw",
+            "quote": "Governing law: England and Wales.",
+            "location": "12. Governing law and disputes"
+          },
+          {
+            "field": "hasDPA",
+            "quote": "Data processing addendum: Yes. Schedule 1 is incorporated as the data processing addendum.",
+            "location": "10. Data protection and security"
+          }
+        ]
+      },
+      {
+        "contractId": "orbit-hris",
+        "reason": "These agreements are governed by England and Wales law and explicitly incorporate a data processing addendum.",
+        "citations": [
+          {
+            "field": "governingLaw",
+            "quote": "Governing law: England and Wales.",
+            "location": "12. Governing law and disputes"
+          },
+          {
+            "field": "hasDPA",
+            "quote": "Data processing addendum: Yes. Schedule 1 is incorporated as the data processing addendum.",
+            "location": "10. Data protection and security"
+          }
+        ]
+      }
+    ]
+  },
+  "What's our total spend renewing in the next 90 days?": {
+    "intent": "spend",
+    "fields": ["annualValueGBP", "endDate"],
+    "summary": "The annualised value of agreements ending in the next 90 days is shown below; it is not an invoice forecast.",
+    "exampleMatches": [
+      {
+        "contractId": "northwind-logistics",
+        "reason": "The annualised value of agreements ending in the next 90 days is shown below; it is not an invoice forecast.",
+        "citations": [
+          {
+            "field": "annualValueGBP",
+            "quote": "Annual contract value: GBP 96000.",
+            "location": "5. Charges and payment"
+          },
+          {
+            "field": "endDate",
+            "quote": "End date: {{TODAY+55}}.",
+            "location": "2. Contract particulars"
+          }
+        ]
+      },
+      {
+        "contractId": "sterling-fintech",
+        "reason": "The annualised value of agreements ending in the next 90 days is shown below; it is not an invoice forecast.",
+        "citations": [
+          {
+            "field": "annualValueGBP",
+            "quote": "Annual contract value: GBP 144000.",
+            "location": "5. Charges and payment"
+          },
+          {
+            "field": "endDate",
+            "quote": "End date: {{TODAY+22}}.",
+            "location": "2. Contract particulars"
+          }
+        ]
+      },
+      {
+        "contractId": "orbit-hris",
+        "reason": "The annualised value of agreements ending in the next 90 days is shown below; it is not an invoice forecast.",
+        "citations": [
+          {
+            "field": "annualValueGBP",
+            "quote": "Annual contract value: GBP 24000.",
+            "location": "5. Charges and payment"
+          },
+          {
+            "field": "endDate",
+            "quote": "End date: {{TODAY+57}}.",
+            "location": "2. Contract particulars"
+          }
+        ]
+      },
+      {
+        "contractId": "novapay-gateway",
+        "reason": "The annualised value of agreements ending in the next 90 days is shown below; it is not an invoice forecast.",
+        "citations": [
+          {
+            "field": "annualValueGBP",
+            "quote": "Annual contract value: GBP 156000.",
+            "location": "5. Charges and payment"
+          },
+          {
+            "field": "endDate",
+            "quote": "End date: {{TODAY+75}}.",
+            "location": "2. Contract particulars"
+          }
+        ]
+      }
+    ]
+  }
+}

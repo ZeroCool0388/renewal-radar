@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+.vercel/
+coverage/
+playwright-report/
+test-results/
+.DS_Store
+*.tsbuildinfo
+tmp/
+# The original authoring brief is kept locally, outside the public demo.
+02-contract-lifecycle-copilot.md
