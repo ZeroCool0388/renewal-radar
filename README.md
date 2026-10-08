@@ -4,7 +4,7 @@ Turn a folder of contracts into a renewals dashboard, verified key terms and sou
 
 ![MIT licence](https://img.shields.io/badge/licence-MIT-teal) ![Next.js](https://img.shields.io/badge/Next.js-16-black) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)
 
-**Live demo:** [Vercel URL — deployment pending] · **Built by:** [Steve Grady](https://github.com/ZeroCool0388) · **LinkedIn:** [LinkedIn URL]
+**Live demo:** [Open Renewal Radar](https://renewal-radar-azure.vercel.app) · **Built by:** [Steve Grady](https://github.com/ZeroCool0388) · **LinkedIn:** [LinkedIn URL]
 
 **Source:** [ZeroCool0388/02-contract-lifecycle-copilot](https://github.com/ZeroCool0388/02-contract-lifecycle-copilot)
 
@@ -67,7 +67,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Deploy by importing the repository into Vercel and accepting the detected Next.js settings. No database, storage service or extra Vercel configuration is needed. Leave API keys unset for the public demo. Both API routes use Node and the seeded `/data` files are explicitly included in the server bundle. Deploying to an owned account requires Vercel access; this checkout has no completed remote deployment.
+Deploy by importing the repository into Vercel and accepting the detected Next.js settings. No database, storage service or extra Vercel configuration is needed. Leave API keys unset for the public demo. Both API routes use Node and the seeded `/data` files are explicitly included in the server bundle. The public demo is deployed as the separate `renewal-radar` project on Vercel Hobby, connected to this repository. Pushes to `main` trigger production deployments.
 
 ## Demo mode vs live mode
 
@@ -84,7 +84,7 @@ Without the selected provider's key, the application uses demo mode. Seeded extr
 
 With a key, an initial background extraction replaces the templates after successful live generation. Re-extract, uploads and Ask use the configured AI SDK provider and shared Zod schemas. Keys never reach the browser. Provider failures preserve the usable portfolio and offer “Continue in demo mode.” The badge reflects the currently active operation mode, and each chat turn records its own mode. Until initial live extraction succeeds, the portfolio truthfully shows Demo mode.
 
-**Verification boundary:** demo workflows have been executed locally; both provider adapter paths have automated mocked-generation tests. Real authenticated OpenAI/Anthropic calls have not been run because credentials are not available. Remote Vercel execution has not been verified. See [verification evidence](docs/VERIFICATION.md).
+**Verification boundary:** demo workflows have been executed locally and on the public Vercel deployment; both provider adapter paths have automated mocked-generation tests. Real authenticated OpenAI/Anthropic calls have not been run because credentials are not available. The hosted dashboard, filters, cited Q&A, source highlighting, PDF extraction and Open Graph image have been verified in Demo mode. See [verification evidence](docs/VERIFICATION.md).
 
 ## Architecture
 

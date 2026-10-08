@@ -1,6 +1,6 @@
 # Verification and design review
 
-Verified locally on 8 October 2026. Default mode: no API key and no `.env` required.
+Verified locally and on Vercel on 8 October 2026. Default mode: no API key and no `.env` required.
 
 ## Completed checks
 
@@ -23,12 +23,23 @@ Verified locally on 8 October 2026. Default mode: no API key and no `.env` requi
 
 - Real authenticated OpenAI extraction, upload and Q&A calls.
 - Real authenticated Anthropic extraction, upload and Q&A calls.
-- A Vercel preview or production deployment. The local Vercel CLI has no active login.
 - Physical mobile devices and Safari. Responsive checks used Chromium.
 
-Both provider adapters have mocked-generation coverage, including truthful mode selection and citation rejection. This demonstrates wiring, not live service availability. No credentials were created or added. The live URL remains a clearly labelled placeholder.
+Both provider adapters have mocked-generation coverage, including truthful mode selection and citation rejection. This demonstrates wiring, not live service availability. No credentials were created or added. The public deployment remains in Demo mode, without provider keys or a paid plan upgrade.
 
-The public source is published at [ZeroCool0388/02-contract-lifecycle-copilot](https://github.com/ZeroCool0388/02-contract-lifecycle-copilot), authored as Steve Grady using the GitHub noreply address. A fresh public clone passed `npm install`, `npm run build` and `npm run dev` with populated portfolio HTML and no env file. Vercel's dashboard redirects to its login page; no existing browser session was available.
+The public source is published at [ZeroCool0388/02-contract-lifecycle-copilot](https://github.com/ZeroCool0388/02-contract-lifecycle-copilot), authored as Steve Grady using the GitHub noreply address. A fresh public clone passed `npm install`, `npm run build` and `npm run dev` with populated portfolio HTML and no env file. Deployment was completed through the signed-in Chrome browser. The Vercel GitHub installation was restricted to this repository; the existing `vendor-risk-triage` project was untouched.
+
+## Public deployment
+
+[Open Renewal Radar](https://renewal-radar-azure.vercel.app), hosted as `renewal-radar` on Vercel Hobby. The linked `main` branch deploys automatically.
+
+- Unauthenticated HTTP request: **200**, with populated seeded portfolio HTML.
+- Chrome dashboard: **9 contracts**, **£420k** renewing within 90 days and **4 auto-renew traps**. The 90-day filter correctly returns four rows.
+- Hosted Q1 question: three matching agreements with source citations. Helix's termination citation opens the correct agreement and highlights the quoted clause.
+- Hosted PDF extraction endpoint: committed synthetic five-page PDF returns **HTTP 200**, one extracted contract and `demo` mode. The resulting contract produces **HTTP 200** from Ask with one cited Q1 match.
+- Hosted Open Graph image: **HTTP 200**, `image/png`.
+
+[Hosted dashboard screenshot](hosted-dashboard.png) records the public site. Real provider calls and physical Safari/mobile testing remain outside this verification.
 
 ## Screenshots
 
@@ -55,6 +66,6 @@ The concepts and latest implementation screenshots were inspected at their origi
 | Responsive behaviour    | Desktop rail becomes a filter sheet; KPIs become a two-by-two grid; detail panes stack. Status pills repeat under mobile suppliers so risks stay visible before horizontal scrolling.                                                                                  |
 | Scope and data fidelity | Dashboard concept navigation is authoritative. Extra report pages, account avatars and invented reviewed-by details in state concepts were omitted because the brief specifies no accounts. Dates, values and answers always derive from the verified portfolio.       |
 
-The generated concepts contain illustrative legal wording and dates. They are visual references only; contract facts and the actual demo are authoritative. No known visual blocker remains. Live provider and hosted deployment verification remain the explicit acceptance boundaries above.
+The generated concepts contain illustrative legal wording and dates. They are visual references only; contract facts and the actual demo are authoritative. No known visual blocker remains. Live provider verification remains an explicit acceptance boundary above; hosted Demo mode is verified.
 
 Above-the-fold copy review: brand, navigation, overview title, subtitle, Export summary, Upload contract, Re-extract and Ask the corpus match the dashboard concept. Added “Renewing within”, “More terms” and KPI explanations support required filtering and field access. “9 contracts”, “4 traps”, “£1.01m” and all dates intentionally replace illustrative concept values. Risk icons replace colour-only dots. Unrelated state-concept navigation and reviewer identity are excluded. These are documented scope/data/accessibility differences, not inert placeholders.
