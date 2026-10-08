@@ -6,6 +6,8 @@ Turn a folder of contracts into a renewals dashboard, verified key terms and sou
 
 **Live demo:** [Vercel URL — deployment pending] · **Built by:** [Steve Grady](https://github.com/ZeroCool0388) · **LinkedIn:** [LinkedIn URL]
 
+**Source:** [ZeroCool0388/02-contract-lifecycle-copilot](https://github.com/ZeroCool0388/02-contract-lifecycle-copilot)
+
 ![Renewal Radar dashboard](docs/dashboard.png)
 
 Works immediately without an API key. Nine substantial synthetic agreements demonstrate a £420k renewal horizon, a short-notice auto-renew trap and uncapped liability exceptions. Nothing is sent to an LLM in demo mode.

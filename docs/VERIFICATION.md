@@ -28,6 +28,8 @@ Verified locally on 8 October 2026. Default mode: no API key and no `.env` requi
 
 Both provider adapters have mocked-generation coverage, including truthful mode selection and citation rejection. This demonstrates wiring, not live service availability. No credentials were created or added. The live URL remains a clearly labelled placeholder.
 
+The public source is published at [ZeroCool0388/02-contract-lifecycle-copilot](https://github.com/ZeroCool0388/02-contract-lifecycle-copilot), authored as Steve Grady using the GitHub noreply address. A fresh public clone passed `npm install`, `npm run build` and `npm run dev` with populated portfolio HTML and no env file. Vercel's dashboard redirects to its login page; no existing browser session was available.
+
 ## Screenshots
 
 Captured from the working in-app browser, not mock data rendered as an interface. Desktop comparison viewport: **1505 × 1045**, matching the concept dimensions. The mobile image is a full-page capture at **390 px** wide.
@@ -54,3 +56,5 @@ The concepts and latest implementation screenshots were inspected at their origi
 | Scope and data fidelity | Dashboard concept navigation is authoritative. Extra report pages, account avatars and invented reviewed-by details in state concepts were omitted because the brief specifies no accounts. Dates, values and answers always derive from the verified portfolio.       |
 
 The generated concepts contain illustrative legal wording and dates. They are visual references only; contract facts and the actual demo are authoritative. No known visual blocker remains. Live provider and hosted deployment verification remain the explicit acceptance boundaries above.
+
+Above-the-fold copy review: brand, navigation, overview title, subtitle, Export summary, Upload contract, Re-extract and Ask the corpus match the dashboard concept. Added “Renewing within”, “More terms” and KPI explanations support required filtering and field access. “9 contracts”, “4 traps”, “£1.01m” and all dates intentionally replace illustrative concept values. Risk icons replace colour-only dots. Unrelated state-concept navigation and reviewer identity are excluded. These are documented scope/data/accessibility differences, not inert placeholders.
