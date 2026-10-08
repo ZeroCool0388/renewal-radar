@@ -52,7 +52,7 @@ export function ContractTable({
               <span
                 className="supplier-avatar"
                 data-tone={
-                  deadlines(c.extraction).status === 'Auto-renewing soon'
+                  deadlines(c.extraction).status === 'Notice missed – will auto-renew'
                     ? 'danger'
                     : ['Logistics SaaS', 'Life sciences'].includes(c.extraction.category ?? '')
                       ? 'blue'

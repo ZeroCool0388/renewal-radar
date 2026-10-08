@@ -4,9 +4,9 @@ Turn a folder of contracts into a renewals dashboard, verified key terms and sou
 
 ![MIT licence](https://img.shields.io/badge/licence-MIT-teal) ![Next.js](https://img.shields.io/badge/Next.js-16-black) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)
 
-**Live demo:** [Open Renewal Radar](https://renewal-radar-azure.vercel.app) · **Built by:** [Steve Grady](https://github.com/ZeroCool0388) · **LinkedIn:** [LinkedIn URL]
+**Live demo:** [Open Renewal Radar](https://renewal-radar-azure.vercel.app) · **Built by:** [Steve Grady](https://github.com/ZeroCool0388) · **LinkedIn:** [Steve on LinkedIn](https://www.linkedin.com/in/steve-jg)
 
-**Source:** [ZeroCool0388/02-contract-lifecycle-copilot](https://github.com/ZeroCool0388/02-contract-lifecycle-copilot)
+**Source:** [ZeroCool0388/renewal-radar](https://github.com/ZeroCool0388/renewal-radar)
 
 ![Renewal Radar dashboard](docs/dashboard.png)
 
@@ -67,6 +67,8 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
+The [CI workflow](.github/workflows/ci.yml) runs lint, typechecking, unit/API tests and a production build on every push and pull request.
+
 Deploy by importing the repository into Vercel and accepting the detected Next.js settings. No database, storage service or extra Vercel configuration is needed. Leave API keys unset for the public demo. Both API routes use Node and the seeded `/data` files are explicitly included in the server bundle. The public demo is deployed as the separate `renewal-radar` project on Vercel Hobby, connected to this repository. Pushes to `main` trigger production deployments.
 
 ## Demo mode vs live mode
@@ -84,7 +86,7 @@ Without the selected provider's key, the application uses demo mode. Seeded extr
 
 With a key, an initial background extraction replaces the templates after successful live generation. Re-extract, uploads and Ask use the configured AI SDK provider and shared Zod schemas. Keys never reach the browser. Provider failures preserve the usable portfolio and offer “Continue in demo mode.” The badge reflects the currently active operation mode, and each chat turn records its own mode. Until initial live extraction succeeds, the portfolio truthfully shows Demo mode.
 
-**Verification boundary:** demo workflows have been executed locally and on the public Vercel deployment; both provider adapter paths have automated mocked-generation tests. Real authenticated OpenAI/Anthropic calls have not been run because credentials are not available. The hosted dashboard, filters, cited Q&A, source highlighting, PDF extraction and Open Graph image have been verified in Demo mode. See [verification evidence](docs/VERIFICATION.md).
+**Verification boundary:** demo workflows have been executed locally and on the public Vercel deployment; both provider adapter paths have automated mocked-generation tests. Real authenticated OpenAI/Anthropic calls have not been run because credentials are not available. The hosted dashboard, filters, cited Q&A, source highlighting, PDF extraction and Open Graph image have been verified in Demo mode.
 
 ## Architecture
 
@@ -123,13 +125,14 @@ The deadline engine uses calendar days, not millisecond division:
 - `daysToNotice` and `daysToRenew` compare calendar dates to today. Negative values mean the date has passed.
 - Missing end/notice/auto-renew terms produce **Needs review**.
 - An end date before today produces **Expired**.
-- Auto-renewal within 30 days, including today, produces **Auto-renewing soon**.
-- A last notice date today or in the past produces **Notice window open**; otherwise the status is **OK**.
+- An auto-renewing agreement whose notice deadline is **0–60 days away**, inclusive, produces **Notice window open**. There is still time to serve notice.
+- An auto-renewing agreement whose notice deadline has **passed** produces **Notice missed – will auto-renew**. This takes priority even when renewal is within 30 days.
+- Fixed-term agreements do not get either auto-renew notice status; otherwise the status is **OK**. Imminent dates still appear in the timeline and renewal-day counts.
 - An auto-renew trap has a future/current renewal and a last notice date already passed or fewer than 30 days away.
 
-Fixed-term expiries are never counted as auto-renew traps. The app cannot know whether valid notice was actually served. It prompts the reviewer to confirm this rather than declaring an automatic commitment as fact. It does not infer that a past agreement actually renewed.
+Fixed-term expiries are never counted as auto-renew traps. The missed-notice label assumes no valid notice was served; confirm delivery and any amendments with a person before acting. The app cannot observe notices or infer that a past agreement actually renewed.
 
-Northwind and NovaPay always sit beyond their last notice dates; Sterling always renews in 22 days; Orbit's notice date is 12 days away. Placeholders resolve in both the source text and extraction quotes before verification, keeping the demo fresh without inconsistent citations. Q1 means the current Q1 during January–March and the next Q1 otherwise. See [the full token convention](data/README.md).
+Northwind and Sterling always sit beyond their last notice dates; Sterling renews in 22 days. Orbit's notice deadline is 12 days away and NovaPay's is 15 days away, so both have open notice windows. Placeholders resolve in both the source text and extraction quotes before verification, keeping the demo fresh without inconsistent citations. Q1 means the current Q1 during January–March and the next Q1 otherwise. See [the full token convention](data/README.md).
 
 ## What I'd tell a customer
 

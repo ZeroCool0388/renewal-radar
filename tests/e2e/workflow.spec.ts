@@ -9,6 +9,15 @@ test('dashboard → filter → cited Q&A → contract → export', async ({ page
   await expect(page.getByRole('heading', { name: 'Portfolio overview' })).toBeVisible();
   await expect(page.getByText('£420k', { exact: true })).toBeVisible();
   await expect(page.locator('tbody tr')).toHaveCount(9);
+  await page.getByLabel('Status', { exact: true }).selectOption('Notice window open');
+  await expect(page.locator('tbody tr')).toHaveCount(2);
+  await expect(page.locator('tbody')).toContainText('Orbit HRIS Ltd');
+  await expect(page.locator('tbody')).toContainText('NovaPay Gateway Ltd');
+  await page.getByLabel('Status', { exact: true }).selectOption('Notice missed – will auto-renew');
+  await expect(page.locator('tbody tr')).toHaveCount(2);
+  await expect(page.locator('tbody')).toContainText('Sterling FinTech Ltd');
+  await expect(page.locator('tbody')).toContainText('Northwind Logistics Ltd');
+  await page.getByRole('button', { name: 'Reset filters' }).click();
   await page.getByLabel('Renewing within', { exact: true }).selectOption('90');
   await expect(page.locator('tbody tr')).toHaveCount(4);
   await page.getByRole('button', { name: 'Reset filters' }).click();
@@ -66,6 +75,11 @@ test('all starter questions, free text and a session follow-up', async ({ page }
     await page.getByRole('button', { name: question, exact: true }).click();
     await expect(page.locator('.thinking')).toHaveCount(0);
     await expect(page.locator('.chat-turn').last().locator('.answer-match')).not.toHaveCount(0);
+    if (question === 'Where is our liability uncapped or above £1m?') {
+      await expect(
+        page.locator('.chat-turn').last().locator('.additional-sources summary').first(),
+      ).toHaveText('1 supporting source');
+    }
   }
   await page.getByRole('textbox', { name: 'Ask a question' }).fill('What about Northwind?');
   await page.getByRole('button', { name: 'Send question' }).click();

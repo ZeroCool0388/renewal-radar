@@ -65,8 +65,9 @@ export function ruleExtract(source: Source): Extraction {
     [
       /Auto[- ]renewal:\s*(Yes|No)/i,
       /(?:shall|will)\s+(not renew automatically|renew automatically)/i,
+      /\b(does not renew automatically|will not renew automatically|shall not renew automatically|does not automatically renew|will not automatically renew|shall not automatically renew|automatically renews|renews automatically|automatically renew|renew automatically)\b/i,
     ],
-    (s) => /^(yes|renew automatically)$/i.test(s),
+    (s) => /^(yes|renew automatically|renews automatically|automatically renews?)$/i.test(s),
   );
   read(
     'renewalTermMonths',

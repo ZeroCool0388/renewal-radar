@@ -54,7 +54,7 @@ The Customer warrants that it has the right to supply Customer Materials and gra
 
 ## 8. Term and termination
 
-Notice period: 120 calendar days before the End date.
+Notice period: 60 calendar days before the End date.
 Auto-renewal: Yes. This Agreement renews automatically unless either party gives timely written notice.
 Renewal term: 12 months.
 Termination for convenience: No. Neither party may terminate solely for commercial convenience during the initial term.

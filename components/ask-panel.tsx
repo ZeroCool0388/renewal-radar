@@ -174,7 +174,10 @@ export function AskPanel({
                             )}
                             {match.citations.length > 1 && (
                               <details className="additional-sources">
-                                <summary>{match.citations.length - 1} supporting sources</summary>
+                                <summary>
+                                  {match.citations.length - 1} supporting{' '}
+                                  {match.citations.length === 2 ? 'source' : 'sources'}
+                                </summary>
                                 {match.citations.slice(1).map((cite, j) => (
                                   <div className="answer-citation" key={j}>
                                     <blockquote>“{cite.quote}”</blockquote>

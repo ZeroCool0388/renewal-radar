@@ -6,7 +6,7 @@
   "startDate": "{{START:75:12}}",
   "endDate": "{{TODAY+75}}",
   "termMonths": 12,
-  "noticePeriodDays": 120,
+  "noticePeriodDays": 60,
   "autoRenew": true,
   "renewalTermMonths": 12,
   "liabilityCapCustomer": "£1,500,000",
@@ -62,7 +62,7 @@
     },
     {
       "field": "noticePeriodDays",
-      "quote": "Notice period: 120 calendar days before the End date.",
+      "quote": "Notice period: 60 calendar days before the End date.",
       "location": "8. Term and termination"
     },
     {

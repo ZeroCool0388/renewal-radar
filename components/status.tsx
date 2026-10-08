@@ -10,7 +10,7 @@ export function StatusPill({ status }: { status: Status }) {
         ? Clock3
         : status === 'Needs review'
           ? HelpCircle
-          : status === 'Auto-renewing soon'
+          : status === 'Notice missed – will auto-renew'
             ? RefreshCw
             : AlertTriangle;
   return (
@@ -19,7 +19,7 @@ export function StatusPill({ status }: { status: Status }) {
       data-risk={
         status === 'OK'
           ? 'okay'
-          : status === 'Auto-renewing soon'
+          : status === 'Notice missed – will auto-renew'
             ? 'danger'
             : status === 'Notice window open'
               ? 'warning'

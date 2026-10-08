@@ -31,7 +31,7 @@ export function resolveRelativeDates(text: string, today = new Date()): string {
 export const statuses = [
   'OK',
   'Notice window open',
-  'Auto-renewing soon',
+  'Notice missed – will auto-renew',
   'Expired',
   'Needs review',
 ] as const;
@@ -47,8 +47,10 @@ export function deadlines(e: Extraction, today = new Date()) {
   if (daysToRenew === null || e.autoRenew === null || e.noticePeriodDays === null)
     status = 'Needs review';
   else if (daysToRenew < 0) status = 'Expired';
-  else if (e.autoRenew && daysToRenew <= 30) status = 'Auto-renewing soon';
-  else if (daysToNotice !== null && daysToNotice <= 0) status = 'Notice window open';
+  else if (e.autoRenew && daysToNotice !== null && daysToNotice < 0)
+    status = 'Notice missed – will auto-renew';
+  else if (e.autoRenew && daysToNotice !== null && daysToNotice <= 60)
+    status = 'Notice window open';
   return {
     noticeWindowOpensOn: notice ? format(notice, 'yyyy-MM-dd') : null,
     daysToNotice,

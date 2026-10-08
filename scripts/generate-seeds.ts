@@ -154,7 +154,7 @@ const seeds = [
     end: '{{TODAY+75}}',
     start: '{{START:75:12}}',
     term: 12,
-    notice: 120,
+    notice: 60,
     renew: true,
     renewTerm: 12,
     customer: '£1,500,000',

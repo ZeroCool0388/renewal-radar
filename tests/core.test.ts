@@ -53,28 +53,33 @@ describe('deadline engine', () => {
       noticeWindowOpensOn: '2026-09-30',
       daysToNotice: -8,
       daysToRenew: 22,
-      status: 'Auto-renewing soon',
+      status: 'Notice missed – will auto-renew',
       trap: true,
     }));
   it('gives expiry priority over imminent renewal', () =>
     expect(deadlines(endIn(-1), today).status).toBe('Expired'));
   it('keeps end date today live and urgent', () =>
-    expect(deadlines(endIn(0), today).status).toBe('Auto-renewing soon'));
-  it('includes the 30-day urgency boundary', () => {
-    expect(deadlines(endIn(30), today).status).toBe('Auto-renewing soon');
-    expect(deadlines(endIn(31, 10), today).status).toBe('OK');
+    expect(deadlines(endIn(0), today).status).toBe('Notice missed – will auto-renew'));
+  it('keeps imminent renewal subordinate to whether notice can still be served', () => {
+    expect(deadlines(endIn(22, 30), today).status).toBe('Notice missed – will auto-renew');
+    expect(deadlines(endIn(22, 10), today).status).toBe('Notice window open');
   });
-  it('opens notice status at deadline day', () => {
+  it('opens notice status from 60 days away through the deadline day', () => {
     expect(deadlines(endIn(90, 90), today).status).toBe('Notice window open');
-    expect(deadlines(endIn(91, 90), today).status).toBe('OK');
+    expect(deadlines(endIn(91, 90), today).status).toBe('Notice window open');
+    expect(deadlines(endIn(150, 90), today).status).toBe('Notice window open');
+    expect(deadlines(endIn(151, 90), today).status).toBe('OK');
+    expect(deadlines(endIn(89, 90), today).status).toBe('Notice missed – will auto-renew');
   });
   it('marks traps when the notice date is less than 30 days away', () => {
     expect(deadlines(endIn(60, 30), today).trap).toBe(false);
     expect(deadlines(endIn(59, 30), today).trap).toBe(true);
   });
-  it('does not call fixed expiries auto-renew traps', () => {
-    expect(deadlines(endIn(20, 30, false), today).status).toBe('Notice window open');
-    expect(deadlines(endIn(20, 30, false), today).trap).toBe(false);
+  it('does not call fixed expiries open or missed auto-renew notice windows', () => {
+    for (const days of [20, 30, 60, 90]) {
+      expect(deadlines(endIn(days, 30, false), today).status).toBe('OK');
+      expect(deadlines(endIn(days, 30, false), today).trap).toBe(false);
+    }
   });
   it('does not invent deadlines for missing or invalid dates', () => {
     expect(deadlines({ ...endIn(20), endDate: null }, today).status).toBe('Needs review');
@@ -91,7 +96,14 @@ describe('deadline engine', () => {
     const portfolio = await loadSeeds(date);
     const statuses = portfolio.map((c) => deadlines(c.extraction, date).status);
     expect(statuses.filter((s) => s === 'Notice window open').length).toBeGreaterThanOrEqual(2);
-    expect(statuses.filter((s) => s === 'Auto-renewing soon').length).toBeGreaterThanOrEqual(1);
+    expect(
+      statuses.filter((s) => s === 'Notice missed – will auto-renew').length,
+    ).toBeGreaterThanOrEqual(1);
+    expect(
+      portfolio.some(
+        (c) => c.extraction.autoRenew && deadlines(c.extraction, date).daysToRenew! <= 30,
+      ),
+    ).toBe(true);
   });
 });
 describe('citation verifier and schemas', () => {
@@ -195,6 +207,35 @@ describe('demo extraction and corpus answers', () => {
       noticePeriodDays: 45,
       paymentTerms: 'Net 30 days',
     });
+  });
+  it('extracts automatic renewal unless written notice is given, with verified evidence', () => {
+    const source = {
+      id: 'natural-unless',
+      name: 'natural-unless.txt',
+      text: 'SYNTHETIC DEMO DATA. Fictional company. Not real.\nSupplier: Fictional Services Ltd.\nThis Agreement renews automatically unless either party gives 60 days written notice before expiry.',
+      origin: 'upload' as const,
+    };
+    const extraction = ruleExtract(source);
+    expect(extraction).toMatchObject({ autoRenew: true, noticePeriodDays: 60 });
+    for (const field of ['autoRenew', 'noticePeriodDays']) {
+      const evidence = extraction.evidence.find((item) => item.field === field)!;
+      expect(evidence.verified).toBe(true);
+      expect(verifyQuote(evidence.quote, source.text)).toBe(true);
+    }
+  });
+  it.each([
+    'does not renew automatically',
+    'will not renew automatically',
+    'shall not automatically renew',
+  ])('preserves explicit negative renewal language: %s', (phrase) => {
+    expect(
+      ruleExtract({
+        id: 'no-renew',
+        name: 'no-renew.txt',
+        origin: 'upload',
+        text: `Supplier: Fictional Services Ltd.\nThis Agreement ${phrase}.`,
+      }).autoRenew,
+    ).toBe(false);
   });
   it.each(starterQuestions)('answers starter question with verified citations: %s', (q) => {
     const a = demoAsk(q, seeds, [], today);
