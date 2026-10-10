@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '@fontsource-variable/geist';
 import './globals.css';
+import { SiteAnalytics } from '@/components/site-analytics';
 import { Providers } from '@/components/providers';
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to portfolio
         </a>
         <Providers>{children}</Providers>
+        <SiteAnalytics />
       </body>
     </html>
   );
