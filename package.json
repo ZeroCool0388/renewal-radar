@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "eval": "TZ=UTC node --conditions=react-server --import tsx evals/run.ts",
     "test:e2e": "playwright test",
     "format": "prettier --write .",
     "seed": "tsx scripts/generate-seeds.ts"
