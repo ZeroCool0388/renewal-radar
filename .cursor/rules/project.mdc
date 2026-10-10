@@ -1,0 +1,33 @@
+---
+description: Project rules for the Renewal Radar repo
+alwaysApply: true
+---
+
+# Renewal Radar
+
+Next.js 16, React 19, and strict TypeScript. Nine synthetic agreements live in `data/contracts/` (Northwind Logistics, Apex BioLabs, Helix Pharma, Sterling FinTech, Cedar Fleet Telematics, Lumen Analytics, Orbit HRIS, BrightPath Consulting, NovaPay Gateway). Extraction templates are in `data/extractions/` and Q&A fixtures in `data/qa-fixtures.json`. The public app is https://renewal-radar-azure.vercel.app and runs without provider keys.
+
+## Synthetic data only
+
+Synthetic data only. Never add real company, customer, vendor, or personal data. No employer names or work data of any kind. Sample documents stay fictional and start with "SYNTHETIC DEMO DATA. Fictional company. Not real." Rebuild the corpus with `npm run seed`.
+
+## No secrets in code
+
+No secrets in code. Do not commit real keys. `.env.example` holds placeholders only (`LLM_PROVIDER`, `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `LLM_MODEL`). Never use a `NEXT_PUBLIC_` key. Keep `.env*` gitignored.
+
+## Tests before a commit or pull request
+
+These must pass before any commit or pull request. They are the checks in `.github/workflows/ci.yml`:
+
+- `npm run lint` — `eslint .`
+- `npm run typecheck` — `tsc --noEmit`
+- `npm run test` — Vitest (`vitest run`)
+- `npm run build` — Next.js production build
+
+## README
+
+The README follows this order: problem, who it's for, demo GIF, live demo link (https://renewal-radar-azure.vercel.app), architecture diagram, eval results, cost and latency, limits and next steps. Only real measured numbers. Never invent metrics, eval scores, cost, or latency.
+
+## Demo mode
+
+Demo mode only. No paid AI calls. Never set provider keys on the deployed project. Production never makes live model calls. Evals use built-in or recorded outputs only.
