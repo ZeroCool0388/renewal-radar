@@ -63,6 +63,7 @@ Checks:
 npm run lint
 npm run typecheck
 npm run test
+npm run eval
 npx playwright install chromium
 npm run test:e2e
 ```
@@ -116,6 +117,16 @@ flowchart LR
 `lib/seeds.ts` loads the rolling fixtures. `lib/extractor.ts` provides the demo rule path. `lib/llm.ts` is the thin server-only provider adapter; no vector database is involved. Corpus Q&A receives verified extraction JSON, computed deadlines and relevant source excerpts. React components separate the dashboard shell, filters, metrics, timeline, table, detail, uploads and chat. TanStack Table handles sorting; Recharts renders the cumulative renewal-value sparkline.
 
 Uploads, notes and review flags use `sessionStorage`, scoped to this browser tab/session. Chat context stays in React memory and resets on refresh. Seed dates refresh on reload; uploaded dates never move. Up to 25 contracts are supported, with at most 10 files and 4 MB total per upload. PDFs need extractable text, with citations retaining page numbers. No accounts, database, OCR, document editing or external reminders are included.
+
+## Eval results
+
+`npm run eval` runs 30 promptfoo cases from `evals/promptfooconfig.json` through `evals/run.ts`. The provider calls the demo extractor, deadline engine, citation checks and recorded Q&A fixtures. The clock is fixed at 2026-10-08. A provider key selects live mode and the run blocks that call. Promptfoo telemetry and sharing are disabled. The [eval workflow](.github/workflows/eval.yml) runs the same command on every push and pull request, with no secrets.
+
+A local run passed **30/30** cases, a pass rate of 100.0%.
+
+## Cost and latency
+
+That run reported cost £0, `model_calls: 0` and `suite_latency_ms: 151.9`.
 
 ## How deadlines are calculated
 
