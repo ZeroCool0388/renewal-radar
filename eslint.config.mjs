@@ -10,5 +10,9 @@ export default defineConfig([
     'test-results/**',
     'playwright-report/**',
     'next-env.d.ts',
+    'mcp/.venv/**',
+    'mcp/var/**',
+    '**/.venv/**',
+    '**/__pycache__/**',
   ]),
 ]);
