@@ -1,0 +1,28 @@
+[project]
+name = "renewal-radar-mcp"
+version = "0.1.0"
+description = "Local stdio MCP server for the Renewal Radar synthetic agreement corpus."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=2.3,<3",
+]
+
+[project.scripts]
+renewal-radar-mcp = "renewal_radar_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3",
+]
+
+[tool.uv]
+package = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

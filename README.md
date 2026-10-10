@@ -128,6 +128,25 @@ A local run passed **30/30** cases, a pass rate of 100.0%.
 
 That run reported cost £0, `model_calls: 0` and `suite_latency_ms: 151.9`.
 
+## MCP server
+
+A local stdio server in `mcp/` exposes the same synthetic agreements to an MCP client. It lists agreements, reads one agreement, reports renewals and notice deadlines within N days, searches clauses, and answers from `data/qa-fixtures.json` with citations. It does not call a model or the network. Reads are the default. `add_note` and `flag_contract` write only to a gitignored demo file, and only after `request_write_approval` plus `confirm: true` for that exact call. Every call is appended to a local JSONL audit log with secret-shaped values redacted. Details and the Cursor snippet are in [mcp/README.md](mcp/README.md).
+
+Example `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "renewal-radar": {
+      "command": "uv",
+      "args": ["--directory", "mcp", "run", "renewal-radar-mcp"]
+    }
+  }
+}
+```
+
+Measured from `uv run pytest` in `mcp/` on Python 3.12.3: `37 passed in 1.55s`. That run includes the tool, approval, audit, and red-team tests.
+
 ## How deadlines are calculated
 
 The deadline engine uses calendar days, not millisecond division:

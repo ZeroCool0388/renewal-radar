@@ -1,0 +1,27 @@
+name: MCP server
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    name: Python MCP tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        working-directory: mcp
+        run: uv sync --locked --all-groups
+      - name: Test
+        working-directory: mcp
+        run: uv run pytest
